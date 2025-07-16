@@ -1,0 +1,20 @@
+{
+  "name": "batalla-chismes",
+  "version": "1.0.0",
+  "description": "recolectar informacion acerca de chismes",
+  "keywords": [
+    "chisme"
+  ],
+  "license": "ISC",
+  "author": "David Gomez",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "kleur": "^4.1.5",
+    "redline": "^1.0.1"
+  }
+}
