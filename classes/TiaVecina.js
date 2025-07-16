@@ -1,7 +1,7 @@
 const Chismosa = require('./Chismosa');
 
 class TiaVecina extends Chismosa {
-    constructor(nombre, reputacion = 4, nivelChisme = 0) {
+    constructor(nombre, reputacion = 1, nivelChisme = 3) {
         super(nombre, reputacion, nivelChisme);
     }
 

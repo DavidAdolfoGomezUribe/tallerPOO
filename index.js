@@ -1,18 +1,18 @@
-// Usar "kleur" para colorear consola
+
 const kleur = require('kleur');
 const readline = require('readline');
 const TiaVecina = require('./classes/TiaVecina');
 const CompaneraCuriosa = require('./classes/CompaneraCuriosa');
 const EstudianteEspia = require('./classes/EstudianteEspia');
 
-// Crear instancias de chismosas
+
 const chismosas = [
   new TiaVecina("Gloria"),
   new CompaneraCuriosa("Sara"),
   new EstudianteEspia("Juliana")
 ];
 
-// Función para simular una ronda completa para todas las chismosas
+
 function simularRondas(cantidad) {
   console.log(kleur.bold(`\nSimulando ${cantidad} ronda(s) para todas las chismosas:`));
   for (let i = 1; i <= cantidad; i++) {
@@ -26,19 +26,18 @@ function simularRondas(cantidad) {
   mostrarResultados();
 }
 
-// Mostrar estadísticas finales
 function mostrarResultados() {
   console.log(kleur.bold("\nResultados finales:"));
   chismosas.forEach(chismosa => {
     const nivel = chismosa.getNivelChisme();
     const reputacion = chismosa.getReputacion();
 
-    const nivelColor = nivel >= 8
+    const nivelColor = nivel >= 5.5
       ? kleur.magenta
       : kleur.white;
     const reputacionColor = reputacion <= 3
       ? kleur.gray
-      : reputacion >= 7
+      : reputacion >= 6
         ? kleur.yellow
         : kleur.white;
 
@@ -49,14 +48,12 @@ function mostrarResultados() {
     );
   });
 
-  // Chismosa más viral
-  const viral = chismosas.reduce((prev, curr) =>
+const viral = chismosas.reduce((prev, curr) =>
     curr.getNivelChisme() > prev.getNivelChisme() ? curr : prev
   );
   console.log(kleur.bold(`\nChisme más viral: ${viral.nombre} con nivel ${viral.getNivelChisme().toFixed(2)}`));
 }
 
-// Configurar interfaz de consola
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -86,5 +83,4 @@ function mostrarMenu() {
   });
 }
 
-// Iniciar menú
 mostrarMenu();
